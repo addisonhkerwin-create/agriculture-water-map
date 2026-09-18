@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="An editorial map exploring U.S. agriculture, water pollution, and the systems that make both legible."
+  />
+  <title>Agriculture & Water Pollution</title>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/maplibre-gl@6.6.0/dist/maplibre-gl.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="masthead"><a href="#" class="wordmark">ADDISON KERWIN</a><span>Fall 2026</span><a href="#map-heading"> ★</a></div>
+    <div class="title-row"><h1>Tracing Agriculture <span>& Water Pollution<span>in The Mississippi <span></span>River Water Shed</span><span><span></span>  </span>. </span>. </span>.   </h1><p class="dek"><br</p>
+    <img class="header-image" src="MM.jpeg" alt="MM image" />
+    <div class="header-foot"><span> Info here.</span><span></span></div>
+  </header>
+
+  <main>
+    <section class="map-section" aria-labelledby="map-heading">
+      <div class="map-copy">
+        <p class="section-label"></p>
+        <h2 id="map-heading"><br></h2>
+        <p></p>
+        <div id="agricultural-controls" role="group" aria-label="Agricultural layers"></div>
+
+        <fieldset class="water-controls">
+          <legend>Impaired waterways</legend>
+          <p class="data-note">Major rivers and lakes are shown in blue-gray at national scale.
+            These background features do not indicate water quality.</p>
+          <label><input id="toggle-nutrient" type="checkbox" disabled>
+            <span class="water-line nutrient-line" aria-hidden="true"></span>Nutrients</label>
+          <p id="nutrient-status" class="water-status" aria-live="polite">Waiting for map…</p>
+          <label><input id="toggle-pesticide" type="checkbox" disabled>
+            <span class="water-line pesticide-line" aria-hidden="true"></span>Pesticides</label>
+          <p id="pesticide-status" class="water-status" aria-live="polite">Waiting for map…</p>
+          <p class="data-note">EPA ATTAINS assessment data. Lines mark waterways
+            with the selected cause of impairment. Absent line could be caused by data gap, not
+            absence of pollution.</p>
+        </fieldset>
+
+        <fieldset class="water-controls">
+          <legend>Story locations</legend>
+          <p id="stories-status" class="water-status" aria-live="polite">Loading stories…</p>
+        </fieldset>
+
+      </div>
+
+      <div class="map-stage">
+        <div class="map-frame"><div id="map" aria-label="Interactive map of HUC6 watersheds"></div></div>
+        <div class="map-readout">
+          <div class="hover-card" id="hover-card"><p class="hover-label">02 / WATERSHED READOUT</p><p class="hover-name" id="hover-name">Every watershed tells a story.</p><p class="hover-id" id="hover-id"></p><p class="hover-value" id="hover-value"></p></div>
+          <div class="status-card" id="status-card" aria-live="polite"><span class="status-dot" aria-hidden="true"></span><span id="status-text">Loading watershed map…</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="sources-panel" aria-labelledby="sources-heading">
+      <h2 id="sources-heading">Sources &amp; methods</h2>
+      <p>MapLibre GL JS · CARTO Positron basemap · OpenStreetMap contributors · USDA NASS 2022 Census of Agriculture · USDA/NWCC watershed boundaries · EPA ATTAINS impairment assessments · Natural Earth rivers and lakes · curated algal bloom story sources.</p>
+      <nav aria-label="Source links">
+        <a href="https://maplibre.org/" target="_blank" rel="noopener noreferrer">MapLibre</a>
+        <a href="https://carto.com/basemaps/" target="_blank" rel="noopener noreferrer">CARTO</a>
+        <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>
+        <a href="https://www.nass.usda.gov/" target="_blank" rel="noopener noreferrer">USDA NASS</a>
+        <a href="https://www.nrcs.usda.gov/" target="_blank" rel="noopener noreferrer">USDA/NWCC</a>
+        <a href="https://www.epa.gov/waterdata/attains" target="_blank" rel="noopener noreferrer">EPA ATTAINS</a>
+        <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a>
+      </nav>
+    </section>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
